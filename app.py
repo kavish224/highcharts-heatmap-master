@@ -7,6 +7,7 @@ import csv
 
 app = Flask(__name__)
 
+
 def load_symbols():
     with open('symbols.csv', 'r') as f:
         reader = csv.reader(f)
@@ -59,4 +60,4 @@ def get_data():
     return jsonify(results)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0',port=5005, debug=True)
