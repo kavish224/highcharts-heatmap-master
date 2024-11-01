@@ -15,7 +15,11 @@ fetch('/get_data')
     .then(data => {
         Highcharts.chart('container', {
             chart: {
-                height: 800,
+                type: 'treemap',
+                height: '460px', // Make the chart fill the height of the container
+                // width: '100%', // Make the chart fill the width of the container
+                spacing: [0, 0, 0, 0],
+                backgroundColor: 'transparent'
             },
             title: {  // Set title explicitly to empty
                 text: null
@@ -23,7 +27,10 @@ fetch('/get_data')
             colorAxis: {
                 stops: colorStops.map(([value, color]) => [((value + 4) / 8), color]),
                 min: -4,
-                max: 4
+                max: 4,
+            },
+            legend: {
+                enabled: false
             },
             series: [{
                 type: 'treemap',
